@@ -37,7 +37,17 @@ export class ListCoursesService {
     return this.tabCourses;
   }
 
+  addCourse(newCourse) {
+    newCourse.id = this.tabCourses[this.tabCourses.length - 1].id + 1;
+    this.tabCourses.push(newCourse);
+  }
+
   getCourseById(id) {
     return this.tabCourses.find((c) => c.id == id);
+  }
+
+  deleteCourse(course) {
+    let i = this.tabCourses.indexOf(course);
+    this.tabCourses.splice(i, 1); //    this.tabCourses.splice(i);
   }
 }
